@@ -1,15 +1,15 @@
-package domain;
+package domain.money;
 
 public class ChickenDiscount extends Discount {
 
-	private final int chickAmount;
+	private final long chickAmount;
 
-	public ChickenDiscount(int chickenAmount) {
+	public ChickenDiscount(long chickenAmount) {
 		validate(chickenAmount);
 		this.chickAmount = chickenAmount;
 	}
 
-	private void validate(int chickenAmount) {
+	private void validate(long chickenAmount) {
 		if (chickenAmount < 0) {
 			throw new IllegalArgumentException("잘못된 수량 입니다.");
 		}

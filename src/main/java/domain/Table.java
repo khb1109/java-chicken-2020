@@ -3,6 +3,10 @@ package domain;
 import java.util.HashMap;
 import java.util.Map;
 
+import domain.menu.Menu;
+import domain.menu.MenuAmount;
+import domain.money.Money;
+
 public class Table {
 	private final int number;
 	private final Map<Menu, MenuAmount> menus;
@@ -38,6 +42,14 @@ public class Table {
 			.map(menus::get)
 			.mapToLong(MenuAmount::getAmount)
 			.sum();
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public Map<Menu, MenuAmount> getMenus() {
+		return menus;
 	}
 
 	@Override

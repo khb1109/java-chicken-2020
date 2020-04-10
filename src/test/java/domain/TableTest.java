@@ -5,6 +5,11 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import domain.menu.Category;
+import domain.menu.Menu;
+import domain.menu.MenuAmount;
+import domain.money.Money;
+
 class TableTest {
 
 	@DisplayName("테이블에 메뉴가 없는지 확인")

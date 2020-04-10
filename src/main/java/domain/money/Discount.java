@@ -1,4 +1,4 @@
-package domain;
+package domain.money;
 
 public abstract class Discount {
 	public Money discount(Money originMoney) {

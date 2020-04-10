@@ -8,13 +8,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import domain.menu.MenuAmount;
+
 class MenuAmountTest {
 
 	@DisplayName("메뉴 카운트 생성테스트")
 	@ParameterizedTest
 	@ValueSource(longs = {-1, 100})
 	void name(long count) {
-		assertThatThrownBy(()-> new MenuAmount(count))
+		assertThatThrownBy(() -> new MenuAmount(count))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 

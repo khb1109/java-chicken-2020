@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import domain.money.CacheDiscount;
+import domain.money.Money;
+
 class CacheDiscountTest {
 
 	@DisplayName("현금할인 테스트!")

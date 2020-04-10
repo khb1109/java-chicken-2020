@@ -10,6 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 
+import domain.menu.Category;
+import domain.menu.Menu;
+import domain.menu.MenuAmount;
+import domain.money.Discount;
+import domain.money.Money;
+import domain.money.Payment;
+
 class PaymentTest {
 	@DisplayName("결제 생성 테스트")
 	@ParameterizedTest

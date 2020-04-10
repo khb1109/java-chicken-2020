@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import domain.menu.MenuAmount;
+import domain.money.Money;
+
 class MoneyTest {
 	@DisplayName("Money 생성 테스트")
 	@Test

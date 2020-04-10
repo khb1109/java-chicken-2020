@@ -1,6 +1,8 @@
-package domain;
+package domain.menu;
 
 import java.util.Objects;
+
+import domain.money.Money;
 
 public class Menu {
 	private final int number;
@@ -21,6 +23,14 @@ public class Menu {
 
 	public boolean isChicken() {
 		return category.isChicken();
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	@Override

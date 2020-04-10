@@ -1,6 +1,8 @@
-package domain;
+package domain.money;
 
 import java.util.Objects;
+
+import domain.menu.MenuAmount;
 
 public class Money {
 	private final long amount;
@@ -30,6 +32,10 @@ public class Money {
 
 	public Money minus(Money other) {
 		return new Money(amount - other.amount);
+	}
+
+	public long getAmount() {
+		return amount;
 	}
 
 	@Override

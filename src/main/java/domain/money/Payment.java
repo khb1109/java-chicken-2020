@@ -1,7 +1,9 @@
-package domain;
+package domain.money;
 
 import java.util.List;
 import java.util.Objects;
+
+import domain.Table;
 
 public class Payment {
 	protected final Table table;
