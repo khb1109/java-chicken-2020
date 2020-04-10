@@ -2,12 +2,12 @@ package domain;
 
 import java.util.Objects;
 
-public class MenuCount {
-	private final long count;
+public class MenuAmount {
+	private final long amount;
 
-	public MenuCount(long count) {
-		validate(count);
-		this.count = count;
+	public MenuAmount(long amount) {
+		validate(amount);
+		this.amount = amount;
 	}
 
 	private void validate(long count) {
@@ -15,14 +15,23 @@ public class MenuCount {
 			throw new IllegalArgumentException(String.format("%d 메뉴의 범위를 넘었습니다.", count));
 		}
 	}
-	public MenuCount addCount(MenuCount other){
-		return new MenuCount(this.count + other.count);
+
+	public MenuAmount addCount(MenuAmount other) {
+		return new MenuAmount(this.amount + other.amount);
+	}
+
+	public long multiply(int price) {
+		return amount * price;
+	}
+
+	public long getAmount() {
+		return amount;
 	}
 
 	@Override
 	public String toString() {
 		return "MenuCount{" +
-			"count=" + count +
+			"count=" + amount +
 			'}';
 	}
 
@@ -32,12 +41,13 @@ public class MenuCount {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		MenuCount menuCount = (MenuCount)o;
-		return count == menuCount.count;
+		MenuAmount menuAmount = (MenuAmount)o;
+		return amount == menuAmount.amount;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(count);
+		return Objects.hash(amount);
 	}
+
 }

@@ -4,26 +4,43 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
-    private final int number;
-    private final Map<Menu, MenuCount> menus;
+	private final int number;
+	private final Map<Menu, MenuAmount> menus;
 
-    public Table(final int number) {
-        this.number = number;
-        this.menus = new HashMap<>();
-    }
+	public Table(final int number) {
+		this.number = number;
+		this.menus = new HashMap<>();
+	}
 
-    public boolean hasMenu() {
-        return menus.size() > 0;
-    }
+	public boolean hasMenu() {
+		return menus.size() > 0;
+	}
 
-    public void addMenu(Menu menu, MenuCount menuCount) {
-        menus.computeIfPresent(menu,
-            (Menu findMenu, MenuCount findMenuCount) -> findMenuCount.addCount(menuCount)
-        );
-    }
+	//todo: 테스트가 좀 어려운데?
+	public void addMenu(Menu menu, MenuAmount menuAmount) {
+		if (menus.containsKey(menu)) {
+			menus.compute(menu, (Menu findMenu, MenuAmount findMenuAmount) -> findMenuAmount.addCount(menuAmount));
+			return;
+		}
+		menus.put(menu, menuAmount);
+	}
 
-    @Override
-    public String toString() {
-        return Integer.toString(number);
-    }
+	public long totalMoney() {
+		return menus.keySet().stream()
+			.mapToLong(menu -> menu.calculatePrice(menus.get(menu)))
+			.sum();
+	}
+
+	public long findCountOfChicken() {
+		return menus.keySet().stream()
+			.filter(Menu::isChicken)
+			.map(menus::get)
+			.mapToLong(MenuAmount::getAmount)
+			.sum();
+	}
+
+	@Override
+	public String toString() {
+		return Integer.toString(number);
+	}
 }
