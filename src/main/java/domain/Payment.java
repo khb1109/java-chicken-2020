@@ -1,15 +1,21 @@
 package domain;
 
+import java.util.List;
 import java.util.Objects;
 
-public abstract class Payment {
-	protected final Money money;
+public class Payment {
+	protected final Table table;
 
 	public Payment(Table table) {
-		Objects.requireNonNull(table, "결제할 테이블이 없어요!");
-		money = null;
-		// 치킨 가격을 할인시킨다!
+		Objects.requireNonNull(table, "테이블이 존재하지 않아요!");
+		this.table = table;
 	}
 
-	abstract public Money calculate();
+	public Money calculate(List<Discount> discounts) {
+		Money money = table.totalMoney();
+		for (Discount discount : discounts) {
+			money = discount.calculateDiscount(money);
+		}
+		return money;
+	}
 }

@@ -17,11 +17,19 @@ public class Money {
 	}
 
 	public Money multiply(MenuAmount menuAmount) {
-		return new Money(amount * menuAmount.getAmount());
+		return multiply(menuAmount.getAmount());
+	}
+
+	public Money multiply(double other) {
+		return new Money((long)(amount * other));
 	}
 
 	public Money addition(Money other) {
 		return new Money(amount + other.amount);
+	}
+
+	public Money minus(Money other) {
+		return new Money(amount - other.amount);
 	}
 
 	@Override
