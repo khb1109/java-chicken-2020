@@ -18,22 +18,22 @@ class TableTest {
 	@Test
 	void totalMoney() {
 		Table table = new Table(1);
-		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, 10000), new MenuAmount(1));
-		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, 10000), new MenuAmount(3));
-		table.addMenu(new Menu(2, "둘둘치킨", Category.CHICKEN, 20000), new MenuAmount(1));
-		table.addMenu(new Menu(3, "호식이치킨", Category.CHICKEN, 30000), new MenuAmount(1));
+		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, new Money(10000)), new MenuAmount(1));
+		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, new Money(10000)), new MenuAmount(3));
+		table.addMenu(new Menu(2, "둘둘치킨", Category.CHICKEN, new Money(20000)), new MenuAmount(1));
+		table.addMenu(new Menu(3, "호식이치킨", Category.CHICKEN, new Money(30000)), new MenuAmount(1));
 
-		assertThat(table.totalMoney()).isEqualTo(90000L);
+		assertThat(table.totalMoney()).isEqualTo(new Money(90000L));
 	}
 
 	@DisplayName("테이블의 치킨의 갯수를 구한다.")
 	@Test
 	void findCountOfChicken() {
 		Table table = new Table(1);
-		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, 10000), new MenuAmount(1));
-		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, 10000), new MenuAmount(3));
-		table.addMenu(new Menu(2, "둘둘치킨", Category.CHICKEN, 20000), new MenuAmount(1));
-		table.addMenu(new Menu(3, "호식이치킨", Category.CHICKEN, 30000), new MenuAmount(1));
+		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, new Money(10000)), new MenuAmount(1));
+		table.addMenu(new Menu(1, "가짜치킨", Category.CHICKEN, new Money(10000)), new MenuAmount(3));
+		table.addMenu(new Menu(2, "둘둘치킨", Category.CHICKEN, new Money(20000)), new MenuAmount(1));
+		table.addMenu(new Menu(3, "호식이치킨", Category.CHICKEN, new Money(30000)), new MenuAmount(1));
 
 		assertThat(table.findCountOfChicken()).isEqualTo(6);
 	}

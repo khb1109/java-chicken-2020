@@ -6,7 +6,7 @@ public class CardPayment extends Payment {
 	}
 
 	@Override
-	public long calculate() {
-		return 0;
+	public Money calculate() {
+		return money;
 	}
 }

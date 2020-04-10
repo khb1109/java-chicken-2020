@@ -25,10 +25,11 @@ public class Table {
 		menus.put(menu, menuAmount);
 	}
 
-	public long totalMoney() {
+	public Money totalMoney() {
 		return menus.keySet().stream()
-			.mapToLong(menu -> menu.calculatePrice(menus.get(menu)))
-			.sum();
+			.map(menu -> menu.calculatePrice(menus.get(menu)))
+			.reduce(Money::addition)
+			.orElse(new Money(0));
 	}
 
 	public long findCountOfChicken() {

@@ -13,8 +13,8 @@ class PaymentTest {
 	void name(Table table) {
 		assertThatThrownBy(() -> new Payment(table) {
 			@Override
-			public long calculate() {
-				return 0;
+			public Money calculate() {
+				return new Money(0);
 			}
 		}).isInstanceOf(NullPointerException.class);
 	}
