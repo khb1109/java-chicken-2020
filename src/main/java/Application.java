@@ -62,14 +62,18 @@ public class Application {
 		Table table = tables.findTable(tableNumber);
 		OutputView.printOrders(table);
 
-		int paymentInfo = InputView.selectPayment();
+		int paymentInfo = InputView.selectPayment(tableNumber);
+
 		List<Discount> discounts = new ArrayList<>();
 		discounts.add(new ChickenDiscount(table.findCountOfChicken()));
 		if (paymentInfo == CACHE) {
 			discounts.add(new CacheDiscount());
 		}
+
 		Payment payment = new Payment(table);
 		Money result = payment.calculate(discounts);
+
+		table.init();
 		OutputView.printPaymentMoney(result);
 	}
 }

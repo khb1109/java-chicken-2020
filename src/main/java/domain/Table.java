@@ -44,6 +44,10 @@ public class Table {
 			.sum();
 	}
 
+	public void init() {
+		menus.clear();
+	}
+
 	public int getNumber() {
 		return number;
 	}

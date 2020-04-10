@@ -16,7 +16,8 @@ public class Payment {
 	public Money calculate(List<Discount> discounts) {
 		Money money = table.totalMoney();
 		for (Discount discount : discounts) {
-			money = discount.calculateDiscount(money);
+			System.out.println(discount.calculateDiscount(money));
+			money = money.minus(discount.calculateDiscount(money));
 		}
 		return money;
 	}
